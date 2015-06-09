@@ -33,6 +33,15 @@ var bio = {
             formattedSkills = HTMLskills.replace("%data%", bio.skills[skill]);
             $("#skills").append(formattedSkills);
         }
+        $("#footerContacts").append(formattedMobile);
+        $("#footerContacts").append(formattedEmail);
+        $("#footerContacts").append(formattedGithub);     
+    },
+    "displayFooterContacts": function(){
+        var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+        var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+        var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.githubUserName);
+           
     }
 };
 
@@ -101,20 +110,35 @@ var education = {
         "title": "Intro to HTML and CSS",
         "school": "Udacity",
         "date": "2015",
-        "url": "https://www.udacity.com/course/viewer#!/c-ud304-nd"
+        "url": "https://www.udacity.com/course/intro-to-html-and-css--ud304"
     }, {
         "title": "Responsive Web Design Fundamentals",
         "school": "Udacity",
         "date": "2015",
-        "url": "https://www.udacity.com/course/viewer#!/c-ud893-nd"
+        "url": "https://www.udacity.com/course/responsive-web-design-fundamentals--ud893"
     }, {
         "title": "Responsive Images",
         "school": "Udacity",
         "date": "2015",
-        "url": "https://www.udacity.com/course/viewer#!/c-ud882-nd"
+        "url": "https://www.udacity.com/course/responsive-images--ud882"
+    }, {
+        "title": "JavaScript Basics",
+        "school": "Udacity",
+        "date": "2015",
+        "url": "https://www.udacity.com/course/javascript-basics--ud804"
+    }, {
+        "title": "Intro to jQuery",
+        "school": "Udacity",
+        "date": "2015",
+        "url": "https://www.udacity.com/course/intro-to-jquery--ud245"
+    }, {
+        "title": "Object-Oriented JavaScript",
+        "school": "Udacity",
+        "date": "2015",
+        "url": "https://www.udacity.com/course/object-oriented-javascript--ud015"
     }],
     "display": function () {
-        //Build the Eductaion Section
+        //Build the Education Section
         // Schools
         for (var school in this.schools) {
             var formattedSchool = HTMLschoolName.replace("%data%", this.schools[school].name);
@@ -133,7 +157,7 @@ var education = {
             var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", this.onlineCourses[course].title);
             var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", this.onlineCourses[course].school);
             var formattedOnlineDates = HTMLonlineDates.replace("%data%", this.onlineCourses[course].date);
-            var formattedOnlineUrl = HTMLonlineURL.replace("%data%", this.onlineCourses[course].url);
+            var formattedOnlineUrl = HTMLonlineURL.replace("%data%", this.onlineCourses[course].url).replace("%data%", this.onlineCourses[course].url);
             $("#education").append(HTMLschoolStart);
             $(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool);
             $(".education-entry:last").append(formattedOnlineDates);
@@ -144,14 +168,14 @@ var education = {
 
 var projects = {
     "projects": [{
-        "title": "Project 1",
+        "title": "Portfolio",
         "dates": "2015",
-        "description": "This was my very first project ever. As you can see it is fake. But I will have a real one soon.",
+        "description": "This was the first project in Udacity's Front-End Web Developer Nanodegree. The purpose of this project was to learn how to create a website from a PDF mockup and it was built using Twitter Bootstrap.",
         "images": []
     }, {
-        "title": "Project 2",
+        "title": "Interactive Resume",
         "dates": "2015",
-        "description": "This was my 2nd project. Still fake. But this wll also change.",
+        "description": "This is my Online resume. An Online Resume",
         "images": []
     }],
     "display": function () {
@@ -168,8 +192,9 @@ var projects = {
 };
 
 
-bio.display()
+bio.display();
 work.display();
 education.display();
 projects.display();
 $("#mapDiv").append(googleMap);
+//bio.displayFooterContacts();
